@@ -1,12 +1,15 @@
 import React from "react"
+import StartPage from "./components/StartPage"
+import QuizPage from "./components/QuizPage"
 
 export default function App() {
+  const [isPlay, setIsPlay] = React.useState(true)
+
   return(
-    <main className="start-page">
-      <h1 className="title start-title">Quizzical</h1>
-      <p className="description">Let's move brain</p>
-      <botton className="start-quiz">Start quiz</botton>
-    </main>
+    <div>
+    {isPlay && <StartPage setPlay={setIsPlay}/>}
+    {!isPlay && <QuizPage setPlay={setIsPlay}/>}
+    </div>
   )
 }
 
